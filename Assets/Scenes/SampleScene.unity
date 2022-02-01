@@ -475,6 +475,8 @@ GameObject:
   - component: {fileID: 2141309394}
   - component: {fileID: 2141309393}
   - component: {fileID: 2141309397}
+  - component: {fileID: 2141309399}
+  - component: {fileID: 2141309398}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -622,11 +624,35 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2141309399}
+        m_TargetAssemblyTypeName: Character_inpput_Manager, Assembly-CSharp
+        m_MethodName: OnMoveInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2555235b-1bc7-44a1-8c3b-8e2135a5af48
     m_ActionName: Gamplay/MOVEMENT1[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2141309399}
+        m_TargetAssemblyTypeName: Character_inpput_Manager, Assembly-CSharp
+        m_MethodName: OnJumpInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0a47b99a-3329-4370-8152-e5abe1d19a1e
     m_ActionName: Gamplay/JUMP[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
@@ -634,3 +660,35 @@ MonoBehaviour:
   m_DefaultActionMap: Gamplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &2141309398
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141309392}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 049bfcefa6b8b8b478a9bc24f8c2853a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2141309399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141309392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17c290fb2f41484a87ce9c0063eba8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
