@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 2141309397}
   - component: {fileID: 2141309399}
   - component: {fileID: 2141309398}
+  - component: {fileID: 2141309400}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -499,12 +500,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!61 &2141309394
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -573,7 +574,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -591,7 +592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141309392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.85, y: -0.12, z: 0}
+  m_LocalPosition: {x: 3, y: -1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -692,3 +693,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17c290fb2f41484a87ce9c0063eba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2141309400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141309392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d613df62f5dfec34fa8f55b9a9f1bc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character_Data: {fileID: 0}
