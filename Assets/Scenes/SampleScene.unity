@@ -693,6 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17c290fb2f41484a87ce9c0063eba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerMovement: {x: 0, y: 0}
 --- !u!114 &2141309400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,4 +706,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d613df62f5dfec34fa8f55b9a9f1bc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_Data: {fileID: 0}
+  character_Data: {fileID: 11400000, guid: 857204bc06a076f41918db70710b4f3a, type: 2}
