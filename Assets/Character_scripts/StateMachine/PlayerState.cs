@@ -8,6 +8,7 @@ public class PlayerState
    protected PlayerStateMachine playerStateMachine;
    protected Character_Data character_Data;
    protected float startTime;
+   protected bool isAnimationFinished;
    private string animBoolName;
 
    public PlayerState(Player player, PlayerStateMachine playerStateMachine, Character_Data character_Data, string animBoolName)
@@ -24,7 +25,6 @@ public class PlayerState
        Debug.Log(animBoolName);
    }
    public virtual void LogicUpdate(){
-       
    }
    public virtual void PhysicsUpdate(){
         DoChecks();
@@ -36,7 +36,12 @@ public class PlayerState
   
   // looks for ground check and air cheeck
    public virtual void DoChecks(){
+       Debug.Log(player.CheckIfTouvhingGround());
 
    }
+   public virtual void AnimationTrigger(){
+
+   }
+    public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
 
 }

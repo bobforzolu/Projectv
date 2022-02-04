@@ -27,9 +27,10 @@ public class Player_Move_State : Player_Grounded_State
     public override void LogicUpdate()
     {
     
-        player.SetVelocityX(character_Data.movementVelocity * input.x);
         base.LogicUpdate();
-        if(input.x == 0f){
+        player.SetVelocityX(character_Data.movementVelocity * Xinput);
+        player.CheckIfCanFlip(Xinput);
+        if(Xinput == 0){
             playerStateMachine.ChangeState(player.Idle_state);
         }
     }
@@ -37,6 +38,7 @@ public class Player_Move_State : Player_Grounded_State
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
     }
 
 }

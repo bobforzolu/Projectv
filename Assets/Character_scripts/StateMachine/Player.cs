@@ -4,27 +4,51 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerStateMachine StateMachine {get; private set;}
-    public Animator Anim {get; private set;}
-    public Player_Move_State Move_State {get; private set;}
-    public Pllayer_idle Idle_state {get; private set;}
+   #region state variables
 
-    public Character_inpput_Manager inpput_Manager {get; private set;}
-
-    public Vector2 CurrentVelocity {get; private set;}
-    public Rigidbody2D RB2D {get; private set;}
     [SerializeField]
     private Character_Data character_Data ;
+    public Pllayer_idle Idle_state {get; private set;}
+    public PlayerStateMachine StateMachine {get; private set;}
+    public Player_Move_State Move_State {get; private set;}
 
+    public Player_Air_State air_State{get; private set;}
+    public Player_land_State land_State{get; private set;}
+    public Player_Jump_State jump_State {get; private set;}
+
+    #endregion
+   
+   #region Components
+    public Character_inpput_Manager inpput_Manager {get; private set;}
+
+    public Animator Anim {get; private set;}
+    public Rigidbody2D RB2D {get; private set;}
+    #endregion
+    
+    #region check Transforms
+    [SerializeField]
+    private Transform groundCheck;
+    #endregion
+    #region Other variables
+    public Vector2 CurrentVelocity {get; private set;}
     private Vector2 WorkSpace;
+
+    public int FacingDirection{get; private set;}
+    #endregion
+    
+    #region  unity Callback functions
     private void Awake() {
         StateMachine = new PlayerStateMachine();
         Move_State = new Player_Move_State(this,StateMachine,character_Data, "walk");
         Idle_state = new Pllayer_idle(this,StateMachine, character_Data,"idle");
+        air_State = new Player_Air_State(this,StateMachine, character_Data, "inair");
+        jump_State = new Player_Jump_State(this,StateMachine, character_Data, "inair");
+        land_State = new Player_land_State(this,StateMachine, character_Data, "land");
     }
     private void Start() {
         Anim = GetComponent<Animator>();
         RB2D = GetComponent<Rigidbody2D>();
+        FacingDirection = 1;
         inpput_Manager = GetComponent<Character_inpput_Manager>();
         StateMachine.Initalize(Idle_state);
     }
@@ -32,14 +56,48 @@ public class Player : MonoBehaviour
         StateMachine.currentState.LogicUpdate();
     }
     private void FixedUpdate() {
-        CurrentVelocity = RB2D.velocity;
         StateMachine.currentState.PhysicsUpdate();
+        CurrentVelocity = RB2D.velocity;
 
     }
+    #endregion
+    
+    #region Set Functions
     public void SetVelocityX(float velocity)
     {
         WorkSpace.Set(velocity, CurrentVelocity.y);
         RB2D.velocity = WorkSpace;
         CurrentVelocity = WorkSpace;
+    } 
+    public void SetVelocityY(float Velocity){
+        WorkSpace.Set(CurrentVelocity.x, Velocity);
+        RB2D.velocity = WorkSpace;
+        CurrentVelocity = WorkSpace;
     }
+    #endregion
+
+    #region  checkFunctions
+    public bool CheckIfTouvhingGround(){
+
+        return Physics2D.OverlapCircle(groundCheck.position,character_Data.groundcheckRadius,character_Data.whatIsGround);
+    }
+    public void CheckIfCanFlip(int xinput)
+    {
+        if( xinput != 0 && xinput != FacingDirection){
+            Flip();
+        }
+    }
+    # endregion
+   
+    #region  other functions
+    private void Flip(){
+        FacingDirection *= -1;
+        transform.Rotate(0.0f,180.0f, 0.0f );
+    }
+    private void OnDrawGizmos() {
+        Gizmos.DrawSphere(groundCheck.position,character_Data.groundcheckRadius);
+    }
+    private void AnimationFinishTrigger() => StateMachine.currentState.AnimationFinishTrigger();
+    private void AnimationTrigger() => StateMachine.currentState.AnimationTrigger();
+    #endregion
 }
