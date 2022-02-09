@@ -6,12 +6,27 @@ using UnityEngine;
 public class Character_Data : ScriptableObject
 {
    [Header("Move State")]
-   public float movementVelocity = 10f;
+   public float playerMovementVelocity = 10f;
 
    [Header("jump Velocity")]
-   public float jumpVelocity = 15f;
+   public float playerJumpVelocity = 15f;
+
+   [Header("aire state")]
+   public float variableJumpMuliplier = 0.5f;
 
    [Header("check variables")]
    public float groundcheckRadius = 0.3f;
    public LayerMask whatIsGround;
+
+   [Header("spike ")]
+
+   public float spikePlayerVelocity = 15f;   
+   public bool CanSpike  = true;
+
+   [Header("sett variables")]
+   public float settPlayerVelocity = 0f;
+   public bool CanSetball = false;
+
+
+
 }

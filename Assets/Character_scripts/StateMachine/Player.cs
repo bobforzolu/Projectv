@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public Player_Air_State air_State{get; private set;}
     public Player_land_State land_State{get; private set;}
     public Player_Jump_State jump_State {get; private set;}
+    public Player_spike_State spike_State {get; private set;}
+    public Player_Sett_state sett_State{get; private set;}
 
     #endregion
    
@@ -32,7 +34,7 @@ public class Player : MonoBehaviour
     #region Other variables
     public Vector2 CurrentVelocity {get; private set;}
     private Vector2 WorkSpace;
-
+    
     public int FacingDirection{get; private set;}
     #endregion
     
@@ -44,6 +46,10 @@ public class Player : MonoBehaviour
         air_State = new Player_Air_State(this,StateMachine, character_Data, "inair");
         jump_State = new Player_Jump_State(this,StateMachine, character_Data, "inair");
         land_State = new Player_land_State(this,StateMachine, character_Data, "land");
+        spike_State = new Player_spike_State(this,StateMachine, character_Data, "spike");
+        sett_State = new Player_Sett_state(this,StateMachine, character_Data, "sett");
+
+
     }
     private void Start() {
         Anim = GetComponent<Animator>();
@@ -51,13 +57,14 @@ public class Player : MonoBehaviour
         FacingDirection = 1;
         inpput_Manager = GetComponent<Character_inpput_Manager>();
         StateMachine.Initalize(Idle_state);
+        
     }
     private void Update() {
+        CurrentVelocity = RB2D.velocity;
         StateMachine.currentState.LogicUpdate();
     }
     private void FixedUpdate() {
         StateMachine.currentState.PhysicsUpdate();
-        CurrentVelocity = RB2D.velocity;
 
     }
     #endregion

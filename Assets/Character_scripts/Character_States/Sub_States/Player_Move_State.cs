@@ -11,6 +11,7 @@ public class Player_Move_State : Player_Grounded_State
     public override void DoChecks()
     {
         base.DoChecks();
+
     }
 
     public override void Enter()
@@ -28,7 +29,8 @@ public class Player_Move_State : Player_Grounded_State
     {
     
         base.LogicUpdate();
-        player.SetVelocityX(character_Data.movementVelocity * Xinput);
+         if(IsExitingState) return;
+        player.SetVelocityX(character_Data.playerMovementVelocity * Xinput);
         player.CheckIfCanFlip(Xinput);
         if(Xinput == 0){
             playerStateMachine.ChangeState(player.Idle_state);

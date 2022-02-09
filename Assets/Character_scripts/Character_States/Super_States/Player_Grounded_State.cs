@@ -7,6 +7,7 @@ public class  Player_Grounded_State : PlayerState
     protected int Xinput;
     private bool JumpInput;
     protected bool isGrounded;
+    protected bool setInput;
      public  Player_Grounded_State (Player player, PlayerStateMachine playerStateMachine, Character_Data character_Data, string animBoolName) : base(player, playerStateMachine,character_Data,animBoolName)
    {
        
@@ -16,7 +17,6 @@ public class  Player_Grounded_State : PlayerState
     {
         base.DoChecks();
         isGrounded = player.CheckIfTouvhingGround();
-
     }
 
     public override void Enter()
@@ -37,10 +37,18 @@ public class  Player_Grounded_State : PlayerState
         base.LogicUpdate();
         Xinput = player.inpput_Manager.NoarmalInputX;
         JumpInput = player.inpput_Manager.JumpInput;
+        setInput = player.inpput_Manager.SetInput;
+        if(IsExitingState) return;
 
         if(JumpInput){
             player.inpput_Manager.UseJumpInput();
             playerStateMachine.ChangeState(player.jump_State);
+        }else if(setInput && Xinput == 0){
+            player.inpput_Manager.UseSettInput();
+            playerStateMachine.ChangeState(player.sett_State);
+
+        }else if(setInput && Xinput != 0){
+
         }
         
     }

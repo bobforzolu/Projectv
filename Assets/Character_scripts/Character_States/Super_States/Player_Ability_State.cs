@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player_Ability_State : PlayerState
 {
     protected bool isAbilityDone;
-
-    private bool isGrounded;
+    protected int Xinput;
+    protected bool isGrounded;
     public Player_Ability_State(Player player, PlayerStateMachine playerStateMachine, Character_Data character_Data, string animBoolName) : base(player, playerStateMachine, character_Data, animBoolName)
     {
     }
@@ -19,7 +19,9 @@ public class Player_Ability_State : PlayerState
     public override void Enter()
     {
         base.Enter();
+
         isAbilityDone =  false;
+
     }
 
     public override void Exit()
@@ -30,10 +32,13 @@ public class Player_Ability_State : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        Xinput = player.inpput_Manager.NoarmalInputX;
+        if(IsExitingState)return;
         if(isAbilityDone)
         {
             if(isGrounded && player.CurrentVelocity.y < 0.01f)
             {
+                
                 playerStateMachine.ChangeState(player.Idle_state);
             }
             else{

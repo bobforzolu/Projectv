@@ -11,14 +11,16 @@ public class Player_Jump_State : Player_Ability_State
      public override void Enter()
     {
         base.Enter();
-        player.SetVelocityY(character_Data.jumpVelocity);
-        isAbilityDone = true;
+        PhysicsUpdate();
     }
-    public override void PhysicsUpdate()
-    {
+    public override void PhysicsUpdate(){
         base.PhysicsUpdate();
-        
+        player.SetVelocityY(character_Data.playerJumpVelocity);
+        player.air_State.SetIsJumping();
+        isAbilityDone = true;
 
     }
+    
+    
 
 }

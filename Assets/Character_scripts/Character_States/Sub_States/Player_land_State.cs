@@ -10,6 +10,7 @@ public class Player_land_State : Player_Grounded_State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+         if(IsExitingState) return;
         if(Xinput !=0){
             playerStateMachine.ChangeState(player.Move_State);
         }else if(isAnimationFinished){
