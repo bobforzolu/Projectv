@@ -35,10 +35,10 @@ public class  Player_Grounded_State : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if(IsExitingState) return;
         Xinput = player.inpput_Manager.NoarmalInputX;
         JumpInput = player.inpput_Manager.JumpInput;
         setInput = player.inpput_Manager.SetInput;
-        if(IsExitingState) return;
 
         if(JumpInput){
             player.inpput_Manager.UseJumpInput();
@@ -48,6 +48,8 @@ public class  Player_Grounded_State : PlayerState
             playerStateMachine.ChangeState(player.sett_State);
 
         }else if(setInput && Xinput != 0){
+            player.inpput_Manager.UseSettInput();
+            playerStateMachine.ChangeState(player.save_State);
 
         }
         

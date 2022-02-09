@@ -2,17 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_lob_state : MonoBehaviour
+public class Player_lob_state : Player_Ability_State
 {
-    // Start is called before the first frame update
-    void Start()
+    public Player_lob_state(Player player, PlayerStateMachine playerStateMachine, Character_Data character_Data, string animBoolName) : base(player, playerStateMachine, character_Data, animBoolName)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void AnimationFinishTrigger()
     {
-        
+        base.AnimationFinishTrigger();
+    }
+
+    public override void AnimationTrigger()
+    {
+        base.AnimationTrigger();
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
     }
 }

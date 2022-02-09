@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Data
   m_EditorClassIdentifier: 
   playerMovementVelocity: 10
-  playerJumpVelocity: 20
+  playerJumpVelocity: 30
   variableJumpMuliplier: 0.5
   groundcheckRadius: 0.42
   whatIsGround:
@@ -23,3 +23,5 @@ MonoBehaviour:
   CanSpike: 1
   settPlayerVelocity: 0
   CanSetball: 0
+  saveSpeed: 15
+  ExecutingSave: 0

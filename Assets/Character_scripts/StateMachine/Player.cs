@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public Player_Jump_State jump_State {get; private set;}
     public Player_spike_State spike_State {get; private set;}
     public Player_Sett_state sett_State{get; private set;}
+    public Player_Save_State save_State{get; private set;}
+
 
     #endregion
    
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
     private Vector2 WorkSpace;
     
     public int FacingDirection{get; private set;}
+    
     #endregion
     
     #region  unity Callback functions
@@ -48,7 +51,7 @@ public class Player : MonoBehaviour
         land_State = new Player_land_State(this,StateMachine, character_Data, "land");
         spike_State = new Player_spike_State(this,StateMachine, character_Data, "spike");
         sett_State = new Player_Sett_state(this,StateMachine, character_Data, "sett");
-
+        save_State = new Player_Save_State(this,StateMachine, character_Data, "save");
 
     }
     private void Start() {
@@ -94,6 +97,8 @@ public class Player : MonoBehaviour
             Flip();
         }
     }
+      public void SetExecuteSaveToDone() => character_Data.ExecutingSave = false;
+
     # endregion
    
     #region  other functions

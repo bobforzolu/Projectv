@@ -61,6 +61,17 @@ public class Character_inpput_Manager : MonoBehaviour
 
         }
     }
+    public void OnLobeInput(InputAction.CallbackContext context){
+         if(context.started)
+        {
+        }
+    }
+    public void OnBlockInput(InputAction.CallbackContext context){
+         if(context.started)
+        {
+        }
+
+    }
     public void UseJumpInput() => JumpInput = false;
      public void UseSpikeInput() => SpikeInput = false;
     public void UseSettInput() => SetInput = false;
@@ -80,4 +91,5 @@ public class Character_inpput_Manager : MonoBehaviour
             SetInput = false;
         }
     }
+    
 }

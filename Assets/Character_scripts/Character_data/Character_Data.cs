@@ -27,6 +27,11 @@ public class Character_Data : ScriptableObject
    public float settPlayerVelocity = 0f;
    public bool CanSetball = false;
 
+  [Header("save state")]
+  public float saveSpeed = 10f;
+  public bool ExecutingSave;
+
+
 
 
 }

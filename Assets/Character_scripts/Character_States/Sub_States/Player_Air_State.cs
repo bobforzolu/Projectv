@@ -33,11 +33,11 @@ public class Player_Air_State : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if(IsExitingState) return;
         isGrounded = player.CheckIfTouvhingGround();
         SpikeInput = player.inpput_Manager.SpikeInput;
         JumpInputStop = player.inpput_Manager.JumpInputStop;
         xInput = player.inpput_Manager.NoarmalInputX;
-        if(IsExitingState) return;
         HoldJump();
         if(isGrounded && player.CurrentVelocity.y < 0.01f)
         {   

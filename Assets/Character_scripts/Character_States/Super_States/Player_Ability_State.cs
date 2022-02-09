@@ -32,8 +32,8 @@ public class Player_Ability_State : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        Xinput = player.inpput_Manager.NoarmalInputX;
         if(IsExitingState)return;
+        Xinput = player.inpput_Manager.NoarmalInputX;
         if(isAbilityDone)
         {
             if(isGrounded && player.CurrentVelocity.y < 0.01f)
