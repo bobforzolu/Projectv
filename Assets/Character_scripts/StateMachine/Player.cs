@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public Player_spike_State spike_State {get; private set;}
     public Player_Sett_state sett_State{get; private set;}
     public Player_Save_State save_State{get; private set;}
+    public Player_block_state block_State{get; private set;}
+    public Player_lob_state lob_State{get; private set;}
 
 
     #endregion
@@ -52,6 +54,8 @@ public class Player : MonoBehaviour
         spike_State = new Player_spike_State(this,StateMachine, character_Data, "spike");
         sett_State = new Player_Sett_state(this,StateMachine, character_Data, "sett");
         save_State = new Player_Save_State(this,StateMachine, character_Data, "save");
+        lob_State = new Player_lob_state(this,StateMachine, character_Data, "lob");
+        block_State = new Player_block_state(this,StateMachine, character_Data, "block");
 
     }
     private void Start() {
