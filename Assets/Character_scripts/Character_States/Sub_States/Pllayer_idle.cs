@@ -28,6 +28,7 @@ public class Pllayer_idle : Player_Grounded_State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if(IsExitingState)return;
         if(Xinput != 0 && !IsExitingState)
         {
             playerStateMachine.ChangeState(player.Move_State);

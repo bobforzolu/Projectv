@@ -15,6 +15,7 @@ public class Player_Jump_State : Player_Ability_State
     }
     public override void PhysicsUpdate(){
         base.PhysicsUpdate();
+        if(IsExitingState) return;
         player.SetVelocityY(character_Data.playerJumpVelocity);
         player.air_State.SetIsJumping();
         isAbilityDone = true;

@@ -39,6 +39,7 @@ public class Player_spike_State : Player_Ability_State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if(IsExitingState) return;
          xInput = player.inpput_Manager.NoarmalInputX;
         if(isAnimationFinished){
             isAbilityDone = true;

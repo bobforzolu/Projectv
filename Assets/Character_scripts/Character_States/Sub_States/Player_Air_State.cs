@@ -10,6 +10,7 @@ public class Player_Air_State : PlayerState
     private bool JumpInputStop;
 
     private bool SpikeInput;
+    private bool BlockInput;
     public Player_Air_State(Player player, PlayerStateMachine playerStateMachine, Character_Data character_Data, string animBoolName) : base(player, playerStateMachine, character_Data, animBoolName)
     {
     }
@@ -38,6 +39,7 @@ public class Player_Air_State : PlayerState
         SpikeInput = player.inpput_Manager.SpikeInput;
         JumpInputStop = player.inpput_Manager.JumpInputStop;
         xInput = player.inpput_Manager.NoarmalInputX;
+        BlockInput = player.inpput_Manager.BlockInput;
         HoldJump();
         if(isGrounded && player.CurrentVelocity.y < 0.01f)
         {   
@@ -48,6 +50,9 @@ public class Player_Air_State : PlayerState
             player.inpput_Manager.UseSpikeInput();
             playerStateMachine.ChangeState(player.spike_State);
 
+        }else if(BlockInput){
+            player.inpput_Manager.UseBlockInput();
+            playerStateMachine.ChangeState(player.block_State);
         }
        else{
            

@@ -36,6 +36,7 @@ public class Player_Sett_state : Player_Ability_State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if(IsExitingState) return;
         player.SetVelocityX(Xinput * character_Data.settPlayerVelocity);
         if(isAnimationFinished )
         {

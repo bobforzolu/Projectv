@@ -41,7 +41,7 @@ public class Player_Save_State : Player_Ability_State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
+        if(IsExitingState) return;
         if(isAnimationFinished ){
             isAbilityDone = true;
         }else {

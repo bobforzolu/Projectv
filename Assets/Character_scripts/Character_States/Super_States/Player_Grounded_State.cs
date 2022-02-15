@@ -7,7 +7,8 @@ public class  Player_Grounded_State : PlayerState
     protected int Xinput;
     private bool JumpInput;
     protected bool isGrounded;
-    protected bool setInput;
+    private bool setInput;
+    private bool LobeInput;
      public  Player_Grounded_State (Player player, PlayerStateMachine playerStateMachine, Character_Data character_Data, string animBoolName) : base(player, playerStateMachine,character_Data,animBoolName)
    {
        
@@ -39,6 +40,7 @@ public class  Player_Grounded_State : PlayerState
         Xinput = player.inpput_Manager.NoarmalInputX;
         JumpInput = player.inpput_Manager.JumpInput;
         setInput = player.inpput_Manager.SetInput;
+        LobeInput = player.inpput_Manager.LobeInput;
 
         if(JumpInput){
             player.inpput_Manager.UseJumpInput();
@@ -50,6 +52,10 @@ public class  Player_Grounded_State : PlayerState
         }else if(setInput && Xinput != 0){
             player.inpput_Manager.UseSettInput();
             playerStateMachine.ChangeState(player.save_State);
+
+        }else if(LobeInput){
+            player.inpput_Manager.UseLobInput();
+            playerStateMachine.ChangeState(player.lob_State);
 
         }
         

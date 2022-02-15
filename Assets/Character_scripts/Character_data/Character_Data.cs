@@ -30,8 +30,10 @@ public class Character_Data : ScriptableObject
   [Header("save state")]
   public float saveSpeed = 10f;
   public bool ExecutingSave;
+  [Header("lob")]
+  public float lobSpeed = 0f;
 
-
-
+  [Header("block")]
+  public float blockSpeed = 0f;
 
 }
