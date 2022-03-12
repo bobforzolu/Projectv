@@ -68,10 +68,10 @@ public class Player : MonoBehaviour
     }
     private void Update() {
         CurrentVelocity = RB2D.velocity;
-        StateMachine.currentState.LogicUpdate();
+        StateMachine.CurrentState.LogicUpdate();
     }
     private void FixedUpdate() {
-        StateMachine.currentState.PhysicsUpdate();
+        StateMachine.CurrentState.PhysicsUpdate();
 
     }
     #endregion
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
     private void OnDrawGizmos() {
         Gizmos.DrawSphere(groundCheck.position,character_Data.groundcheckRadius);
     }
-    private void AnimationFinishTrigger() => StateMachine.currentState.AnimationFinishTrigger();
-    private void AnimationTrigger() => StateMachine.currentState.AnimationTrigger();
+    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
     #endregion
 }
