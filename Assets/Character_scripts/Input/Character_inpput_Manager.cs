@@ -34,7 +34,6 @@ public class Character_inpput_Manager : MonoBehaviour
 
     private void Update() {
         CheckJumHoldTime();
-            Debug.Log(SetInput);
         CheckSpikeHoldTime();
         CheckSetteHoldTime();
         CheckBlockHoldTime();

@@ -425,54 +425,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 876613449908637767, guid: e291120f8cb92fd49813e216c04500a9, type: 3}
   m_PrefabInstance: {fileID: 876613449663355283}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1070838306
+--- !u!1 &1070838306 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8506640716181198030, guid: 903f0d6d0a77be04eba8e767262b3458, type: 3}
+  m_PrefabInstance: {fileID: 7505476971005914175}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1070838307}
-  - component: {fileID: 1070838308}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1070838307
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070838306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2143966487}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1070838308
-CircleCollider2D:
+--- !u!114 &1070838309
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070838306}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.12
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7556c2f0450fdb04d913cdd0ea3e56f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player_current_Animation: {fileID: 0}
+  StateName: 
 --- !u!1 &1458025656
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,11 +666,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7505476972393593132, guid: 903f0d6d0a77be04eba8e767262b3458, type: 3}
   m_PrefabInstance: {fileID: 7505476971005914175}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2143966487 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7505476972393593128, guid: 903f0d6d0a77be04eba8e767262b3458, type: 3}
-  m_PrefabInstance: {fileID: 7505476971005914175}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2143966489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,7 +678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7556c2f0450fdb04d913cdd0ea3e56f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCurrentState: {fileID: 0}
+  Player_current_Animation: {fileID: 0}
+  StateName: 
 --- !u!1001 &876613449663355283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -996,6 +963,10 @@ PrefabInstance:
     - target: {fileID: 7505476972393593132, guid: 903f0d6d0a77be04eba8e767262b3458, type: 3}
       propertyPath: m_Name
       value: BALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506640716181198030, guid: 903f0d6d0a77be04eba8e767262b3458, type: 3}
+      propertyPath: m_Name
+      value: colision check
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 903f0d6d0a77be04eba8e767262b3458, type: 3}

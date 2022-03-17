@@ -12,6 +12,7 @@ public class FreezeAir : Ball_State
     public override void Enter()
     {
         base.Enter();
+        BallController.setPosition(Ball_Data.freeze_position_x, Ball_Data.freeze_position_y);
     }
 
     public override void Exit()
@@ -22,15 +23,14 @@ public class FreezeAir : Ball_State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
     }
 
     public override void PhysicUpdate()
     {
         base.PhysicUpdate();
-        BallController.SetVelocityX(Ball_Data.freeze);
-        BallController.SetVelocityY(Ball_Data.freeze);
+        BallController.SetGravity(0);
         BallController.SetGravity(Ball_Data.freeze_gravity);
-        BallController.setPosition(Ball_Data.freeze_position_x, Ball_Data.freeze_position_y);
 
         
 

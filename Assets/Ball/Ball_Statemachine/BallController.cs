@@ -18,6 +18,8 @@ public class BallController : MonoBehaviour
     #region Components
     [SerializeField]
     private Rigidbody2D rb2d;
+
+    private Ball_Colision_check colision_Check;
     #endregion
 
 
@@ -34,6 +36,7 @@ public class BallController : MonoBehaviour
     }
     private void Start()
     {
+        colision_Check = GetComponentInChildren<Ball_Colision_check>();
         BallStateMachine.Initalize(Freez_State);
         
     }

@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerStateMachine 
 {
     public PlayerState CurrentState {get; private set;}
+    public string Statename { get; private set; }
 
     public void Initalize(PlayerState startingState)
     {
+        
         CurrentState = startingState;
         CurrentState.Enter();
     }

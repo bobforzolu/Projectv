@@ -5,10 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Ball_data",menuName ="Data/Ball Data/ base Data")]
 public class Ball_State_data : ScriptableObject
 {
+    public Rigidbody2D Ball_RigidBody;
+    [Header("state")]
+    [SerializeField]
+    private string CurrentState;
     [Header("freeze state")]
-    public int freeze = 0;
     public float freeze_gravity = 0;
     public float freeze_position_y = 0;
     public float freeze_position_x = 0;
+    public void SetGravity(int gravity)
+    {
+        Ball_RigidBody.gravityScale = gravity;
+    }
 
 }
