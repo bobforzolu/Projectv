@@ -13,9 +13,15 @@ public class Ball_State_data : ScriptableObject
     public float freeze_gravity = 0;
     public float freeze_position_y = 0;
     public float freeze_position_x = 0;
+    public float unfreeze_gravity = 3;
+
     public void SetGravity(int gravity)
     {
         Ball_RigidBody.gravityScale = gravity;
     }
+    [Header("spike")]
+    public float height;
+    public float gravity;
+
 
 }

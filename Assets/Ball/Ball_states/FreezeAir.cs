@@ -12,25 +12,36 @@ public class FreezeAir : Ball_State
     public override void Enter()
     {
         base.Enter();
-        BallController.setPosition(Ball_Data.freeze_position_x, Ball_Data.freeze_position_y);
+       // BallController.setPosition(Ball_Data.freeze_position_x, Ball_Data.freeze_position_y);
     }
 
     public override void Exit()
     {
         base.Exit();
+       // BallController.SetGravity(Ball_Data.unfreeze_gravity);
+
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if (BallController.Colision_Check.Ball_Is_Spiked())
+        {
+            Debug.Log("spike");
+
+            BallController.BallStateMachine.ChangeState(BallController.spike_State);
+        }else if (BallController.Colision_Check.Check_If_Lobe())
+        {
+            Debug.Log("lobe");
+            BallController.BallStateMachine.ChangeState(BallController.Lobe_State);
+        }
 
     }
 
     public override void PhysicUpdate()
     {
         base.PhysicUpdate();
-        BallController.SetGravity(0);
-        BallController.SetGravity(Ball_Data.freeze_gravity);
+       // BallController.SetGravity(Ball_Data.freeze_gravity);
 
         
 

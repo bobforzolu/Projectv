@@ -15,5 +15,8 @@ MonoBehaviour:
   Ball_RigidBody: {fileID: 7505476972393593130, guid: 903f0d6d0a77be04eba8e767262b3458, type: 3}
   CurrentState: 
   freeze_gravity: 0
-  freeze_position_y: -0.82
+  freeze_position_y: 2.01
   freeze_position_x: 0
+  unfreeze_gravity: 3
+  height: 4.52
+  gravity: -33.4

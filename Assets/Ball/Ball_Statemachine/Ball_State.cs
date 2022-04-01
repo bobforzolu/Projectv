@@ -17,7 +17,7 @@ public class Ball_State
    
     public virtual void Enter()
     {
-
+        Debug.Log(Current_Ball_State);
     }
     public virtual void PhysicUpdate()
     {

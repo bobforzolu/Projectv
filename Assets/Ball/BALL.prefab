@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5245203356317960267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2945731155487994067}
+  m_Layer: 0
+  m_Name: movments
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2945731155487994067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245203356317960267}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7505476972393593128}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7505476972393593132
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,6 +44,7 @@ GameObject:
   - component: {fileID: 7505476972393593130}
   - component: {fileID: 7505476972393593131}
   - component: {fileID: 3023285410664363697}
+  - component: {fileID: 6056213520762940830}
   m_Layer: 0
   m_Name: BALL
   m_TagString: Untagged
@@ -33,6 +65,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6786644535861001659}
+  - {fileID: 2945731155487994067}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,6 +172,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball_Data: {fileID: 11400000, guid: d1d5d6c9db7bb5d4e8c27981caab53b0, type: 2}
   rb2d: {fileID: 7505476972393593130}
+--- !u!114 &6056213520762940830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505476972393593132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c47e12650b8314ebc22cdc1cb30abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  speedModifier: 0
+  courutineAllowed: 0
 --- !u!1 &8506640716181198030
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6786644535861001659}
   - component: {fileID: 1406395115654172402}
+  - component: {fileID: 4217202322604138096}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -187,3 +239,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.12
+--- !u!114 &4217202322604138096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8506640716181198030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7556c2f0450fdb04d913cdd0ea3e56f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player_current_Animation: {fileID: 0}
+  StateName: 

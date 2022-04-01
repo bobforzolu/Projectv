@@ -7,7 +7,8 @@ public class BallController : MonoBehaviour
     #region Ball State variables
     public BallStateMachine BallStateMachine { get; private set; }
     public FreezeAir Freez_State { get; private set; }
-
+    public Spike_Forwards spike_State { get; private set; }
+    public Lobe Lobe_State { get; private set; }
     [SerializeField]
     private Ball_State_data ball_Data;
 
@@ -17,9 +18,10 @@ public class BallController : MonoBehaviour
 
     #region Components
     [SerializeField]
+     
     private Rigidbody2D rb2d;
-
-    private Ball_Colision_check colision_Check;
+    public SpikeMovement spike_movement { get; private set; }
+    public Ball_Colision_check Colision_Check { get; private set; }
     #endregion
 
 
@@ -32,11 +34,14 @@ public class BallController : MonoBehaviour
     {
         BallStateMachine = new BallStateMachine();
         Freez_State = new FreezeAir("frozen", ball_Data, this);
+        spike_State = new Spike_Forwards("spike", ball_Data, this);
+        Lobe_State = new Lobe("lob", ball_Data, this);
 
     }
     private void Start()
     {
-        colision_Check = GetComponentInChildren<Ball_Colision_check>();
+        Colision_Check = GetComponentInChildren<Ball_Colision_check>();
+        spike_movement = GetComponentInChildren<SpikeMovement>();
         BallStateMachine.Initalize(Freez_State);
         
     }
